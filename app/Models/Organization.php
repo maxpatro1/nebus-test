@@ -19,7 +19,7 @@ class Organization extends Model
         'building_id',
     ];
 
-    public function phone(): HasMany
+    public function phones(): HasMany
     {
         return $this->hasMany(OrganizationPhone::class);
     }
@@ -31,6 +31,6 @@ class Organization extends Model
 
     public function activity(): HasOne
     {
-        return $this->hasOne(OrganizationActivity::class);
+        return $this->hasOne(OrganizationActivity::class, 'id', 'activity_id');
     }
 }
