@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "JSONPlaceholder",
+        "description": "Fake Online REST API for Testing and Prototyping",
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/api/organizations": {
+            "get": {
+                "description": "Получение всех организаций",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "building_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true,
+                            "maxLength": 255
+                        }
+                    },
+                    {
+                        "name": "activity_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "area",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "object",
+                            "nullable": true,
+                            "properties": {
+                                "latitude_max": {
+                                    "type": "number",
+                                    "nullable": true,
+                                    "minimum": 90
+                                },
+                                "longitude_min": {
+                                    "type": "number",
+                                    "nullable": true,
+                                    "minimum": 0
+                                },
+                                "latitude_min": {
+                                    "type": "number",
+                                    "nullable": true,
+                                    "minimum": 0
+                                },
+                                "longitude_max": {
+                                    "type": "number",
+                                    "nullable": true,
+                                    "minimum": 90
+                                }
+                            }
+                        },
+                        "style": "deepObject"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    }
+                }
+            }
+        }
+    }
+}
